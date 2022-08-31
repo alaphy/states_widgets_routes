@@ -9,17 +9,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Language> languages = [
-    Language("Android Nativo", "Linguagen C"),
-    Language("...", "...")
-  ];
+  List<Language> languages = [];
 
   Widget title = const Text("Minhas Linguagens");
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: title),
+      appBar: AppBar(
+        title: title,
+      ),
       body: Column(
         children: [
           Wrap(
@@ -30,6 +29,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
+  }
+
+  void _goToAddLanguage() {
+    Future future = Navigator.pushNamed(context, "/add");
+    future.then((languages) => setState(()
   }
 
   List<Widget> buildChoice() {
